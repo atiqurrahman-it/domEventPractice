@@ -1,16 +1,21 @@
-let assignNewContentPosition=document.getElementById('container')
 
+// ---------------------- 
+let assignNewContentPosition=document.getElementById('container')
 
 let btnAdd=document.getElementById('btnAdd')
 btnAdd.addEventListener('click', ()=>{
     let assignNewContent=document.getElementById('new-content');
+    // create a new element  (p tag)
     let newContent=document.createElement('p')
+    //set the text of innerText of the p tag 
     newContent.innerText=assignNewContent.value
     assignNewContentPosition.appendChild(newContent)
-    assignNewContent.value=''; // data reset
+    // clear the text area 
+    assignNewContent.value=''; 
 
 })
 
+// --------------------------------- background color change ------------------
 
 // option 1
 {/* <button onclick="document.body.style.backgroundColor='yellow'">Yellow</button> */}
@@ -28,7 +33,6 @@ btnBg.onclick=changeBackground
 function changeBackground(){
     document.body.style.backgroundColor='blue';
 }
-
 // option 3 another way 
 
 let blackBg=document.getElementById('black-btn')
@@ -36,8 +40,6 @@ blackBg.onclick=function changeBackground(){
     document.body.style.backgroundColor='black';
     document.body.style.color='white';
 }
-
-
 
 // best way 
 // option 4 
@@ -57,6 +59,19 @@ pinkBtn.addEventListener('click', ()=>{
     document.body.style.color='black'
 })
 
+
+//-----------------------------------------
+
+let input=document.getElementById('inputText')
+let setInputText=document.getElementById('setInputText')
+
+input.addEventListener('keyup',function(event){
+    // console.log(event);
+    // console.log(event.target);
+    console.log(event.target.value);
+    let value=event.target.value
+    setInputText.innerText=value
+})
 
 
 
