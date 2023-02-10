@@ -62,6 +62,27 @@ pinkBtn.addEventListener('click', ()=>{
 
 //-----------------------------------------
 
+let deleteElement=document.getElementById('delete_part')
+let deleteBtn=document.getElementById('deleteBtn')
+
+let confirmDelete=document.getElementById('confirm-delete')
+confirmDelete.addEventListener('keyup',function(event){
+    let deleteMessage=event.target.value
+    console.log(deleteMessage)
+    if(deleteMessage==='delete'){
+        deleteBtn.removeAttribute('disabled')
+    }else{
+        deleteBtn.setAttribute('disabled',true)
+    }
+})
+
+// let deleteBtn=document.getElementById('deleteBtn')
+deleteBtn.addEventListener('click',function(){
+    deleteElement.style.display='none'
+})
+
+//_______________________________________
+
 let input=document.getElementById('inputText')
 let setInputText=document.getElementById('setInputText')
 
@@ -72,6 +93,33 @@ input.addEventListener('keyup',function(event){
     let value=event.target.value
     setInputText.innerText=value
 })
+
+// ---------------------------------------
+// ei  vabe delete korle new element delete hobe na 
+
+// let items=document.getElementsByClassName('items')
+// for(const item of items){
+//     item.addEventListener('click',function(e){
+//         e.target.parentNode.removeChild(e.target)  // delete item
+//     })
+// }
+
+document.getElementById('listContainer').addEventListener('click',function(event){
+    // console.log(event.target)
+    event.target.parentNode.removeChild(event.target)
+})
+
+
+document.getElementById('addItems').addEventListener('click',function(){
+    let listContainer=document.getElementById('listContainer')
+   
+    let li=document.createElement('li')
+    li.innerText='New Element ';
+    li.classList.add('items')
+    listContainer.append(li);
+})
+
+
 
 
 
